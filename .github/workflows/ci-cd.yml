@@ -21,5 +21,5 @@ jobs:
       # - name: Run migrations
       #   run: rails db:create db:migrate
 
-      # - name: Run specs
-      #   run: rspec spec
+      - name: Run specs
+        run: rspec spec
