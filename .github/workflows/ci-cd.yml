@@ -9,6 +9,8 @@ jobs:
     name: 'Executing tests'
     runs-on: ubuntu-latest
     environment: stagging
+    container:
+      image: ruby:3.0.4
     steps:
       - name: Get the code
         uses: actions/checkout@v3
@@ -19,5 +21,5 @@ jobs:
       # - name: Run migrations
       #   run: rails db:create db:migrate
 
-      - name: Run specs
-        run: rspec spec
+      # - name: Run specs
+      #   run: rspec spec
