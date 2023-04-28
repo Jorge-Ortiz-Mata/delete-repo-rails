@@ -1,7 +1,8 @@
-name: 'CI & CD - Pull Request'
+name: 'CI & CD - Stagging'
 on:
-  pull_request:
-    types: [opened]
+  push:
+    branches:
+      - main
 
 jobs:
   testing:
