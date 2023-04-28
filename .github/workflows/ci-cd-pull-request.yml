@@ -13,3 +13,4 @@ jobs:
   deployment:
     name: Deploy to Microsft Azure
     uses: ./.github/workflows/azure-deployment.yml
+    needs: testing
