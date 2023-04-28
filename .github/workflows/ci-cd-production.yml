@@ -1,12 +1,14 @@
-name: 'CI & CD - Pull Request'
+name: 'CI & CD - Production'
 on:
-  pull_request:
+  release:
+    types: [published]
+
   workflow_dispatch:
 
 jobs:
   testing:
     name: Running Testing Workflow
-    uses: ./.github/workflows/testing-workflow.yml
+    uses: ./github/workflows/testing-workflow.yml
 
   deployment:
     name: Deploy to Microsft Azure
