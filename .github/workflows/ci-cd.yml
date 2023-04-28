@@ -11,6 +11,12 @@ jobs:
     environment: stagging
     container:
       image: ruby:3.0.4
+    services:
+      database:
+        image: postgres:latest
+        env:
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: postgres
     steps:
       - name: Get the code
         uses: actions/checkout@v3
