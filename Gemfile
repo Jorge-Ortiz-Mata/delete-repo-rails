@@ -13,6 +13,8 @@ gem "sprockets-rails"
 # gem "sqlite3", "~> 1.4"
 gem "pg"
 
+gem 'rspec-rails', ">= 3.9.0"
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
