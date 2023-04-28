@@ -1,0 +1,9 @@
+name: 'CI & CD - Pull Request'
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  testing:
+    name: Running Testing Workflow
+    uses: ./.github/workflows/testing-workflow.yml
