@@ -18,8 +18,8 @@ jobs:
       - name: Install dependencies
         run: bundle install
 
-      # - name: Run migrations
-      #   run: rails db:create db:migrate
+      - name: Run migrations
+        run: rails db:create RAILS_ENV=test
 
       - name: Run specs
         run: rspec spec
