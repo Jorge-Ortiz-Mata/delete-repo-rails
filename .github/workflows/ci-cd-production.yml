@@ -1,0 +1,11 @@
+name: 'CI & CD - Production'
+on:
+  release:
+    types: [published]
+
+  workflow_dispatch:
+
+jobs:
+  testing:
+    name: Running Testing Workflow
+    uses: ./github/workflows/testing-workflow.yml

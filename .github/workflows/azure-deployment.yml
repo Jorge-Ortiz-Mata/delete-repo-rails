@@ -1,0 +1,24 @@
+name: 'Deployment to Microsoft Azure'
+on:
+  workflow_call:
+
+jobs:
+  deployment-job:
+    name: 'Deplyoment to Microsoft Azure'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3.0.0
+
+      - name: Authentication with Microsoft Azure.
+        run: |
+          echo "Authenticating with Microsoft Azure..."
+          echo "Authentication succed"
+
+      - name: Build image
+        run: echo Building Docker image
+
+      - name: Deploy to Microsoft Azure
+        run: echo Deploying succed
+
+

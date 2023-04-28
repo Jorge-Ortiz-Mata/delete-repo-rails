@@ -1,12 +1,11 @@
 name: 'Testing Workflow'
 on:
-  workflow_call
+  workflow_call:
 
 jobs:
   testing-job:
     name: 'Executing tests'
     runs-on: ubuntu-latest
-    environment: stagging
     container:
       image: ruby:3.0.4
     services:
