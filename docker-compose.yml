@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  database:
+    image: postgres:latest
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: postgres
+
+  development:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - database
