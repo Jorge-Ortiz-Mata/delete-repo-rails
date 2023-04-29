@@ -32,12 +32,6 @@ jobs:
           username: ${{ env.REGISTRY_USERNAME }}
           password: ${{ env.REGISTRY_PASSWORD }}
 
-      - name: Deploy to Microsof Azure Container Registry
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: ${{ env.MICROSOFT_AZURE_NAME }}
-          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-
       - name: Build the docker image and push it to ACR
         uses: docker/build-push-action@v2
         with:
