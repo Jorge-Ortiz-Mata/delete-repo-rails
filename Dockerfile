@@ -47,6 +47,7 @@ RUN apt-get update \
 
 WORKDIR /workspaces/delete-app
 
+# Copy everything
 COPY . .
 
 RUN bundle install
