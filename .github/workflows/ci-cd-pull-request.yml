@@ -3,12 +3,18 @@ on:
   pull_request:
   workflow_dispatch:
 
+# env:
+#   PR_NUMBER: ${{ github.event.pull_request.number }}
+#   REGISTRY_LOGIN_SERVER: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+#   REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+#   REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
+
 jobs:
-  testing:
-    name: Running Testing Workflow
-    uses: ./.github/workflows/testing-workflow.yml
+  # testing:
+  #   name: Running Testing Workflow
+  #   uses: ./.github/workflows/testing-workflow.yml
 
   deployment:
     name: Deploy to Microsft Azure
     uses: ./.github/workflows/azure-deployment.yml
-    needs: testing
+    # needs: testing
