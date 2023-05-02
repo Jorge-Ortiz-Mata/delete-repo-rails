@@ -1,0 +1,86 @@
+name: 'Deployment to Microsoft Azure'
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+        default: other
+      pr-name:
+        required: true
+        type: string
+      pr-number:
+        required: true
+        type: string
+    # secrets:
+    #   server:
+    #     required: true
+    #   username:
+    #     required: true
+    #   password:
+    #     required: true
+
+jobs:
+  authentication-ms-azure:
+    name: 'Authentication with Microsoft Azure'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Run Authentication'
+        run: echo "Authentication process..."
+
+      # - name: Checkout the code
+      #   uses: actions/checkout@v3.0.0
+
+      # - name: 'Azure Container Registry Login'
+      #   uses: azure/docker-login@v1
+      #   with:
+      #     login-server: ${{ secrets.server }}
+      #     username: ${{ secrets.username }}
+      #     password: ${{ secrets.password }}
+
+  deployment-ms-azure-pull-request:
+    name: Deployment to Microsoft Azure
+    runs-on: ubuntu-latest
+    needs: authentication-ms-azure
+    steps:
+      - name: 'Run Pull Request'
+        run: echo "Pull Request process..."
+      # - name: Build the docker image and push it to ACR
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     push: true
+      #     tags: ${{ secrets.server }}/pull-request-${{ inputs.pr-number }}:latest
+
+      # - name: Deploy to Microsoft Azure
+      #   run: echo "Docker image and Pull request ${{ inputs.pr-number }} deployed."
+
+  deployment-ms-azure-stagging:
+    name: Deployment to Microsoft Azure
+    runs-on: ubuntu-latest
+    needs: authentication-ms-azure
+    steps:
+      - name: 'Run Stagging'
+        run: echo "Stagging process..."
+
+  deployment-ms-azure-production:
+    name: Deployment to Microsoft Azure
+    runs-on: ubuntu-latest
+    needs: authentication-ms-azure
+    steps:
+      - name: 'Run Production'
+        run: echo "Production process..."
+
+
+
+              # - name: Run PR step
+      #   if: ${{ inputs.environment == 'pull_request' }}
+      #   run: echo "This is a pull request"
+
+      # - name: Run Stagging step
+      #   if: ${{ inputs.environment == 'stagging' }}
+      #   run: echo "This is stagging"
+
+      # - name: Run Production step
+      #   if: ${{ inputs.environment  == 'production' }}
+      #   run: echo "This is production"
