@@ -25,7 +25,7 @@ jobs:
     if: ${{ inputs.environment == 'pull_request' }}
     name: Deployment from Pull Request environment
     runs-on: ubuntu-latest
-    environment: pull-request/${{ inputs.pr-name }}/${{ inputs.pr-number }}
+    environment: pull-request/${{ inputs.pr-number }}-${{ inputs.pr-name }}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3.0.0
