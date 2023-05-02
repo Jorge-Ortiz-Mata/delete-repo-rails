@@ -38,7 +38,7 @@ jobs:
 
   deployment-ms-azure-pull-request:
     if: ${{ inputs.environment == 'pull_request' }}
-    name: Deployment to Microsoft Azure
+    name: Deployment from Pull Request environment
     runs-on: ubuntu-latest
     needs: authentication-ms-azure
     steps:
@@ -50,7 +50,7 @@ jobs:
 
   deployment-ms-azure-stagging:
     if: ${{ inputs.environment == 'stagging' }}
-    name: Deployment to Microsoft Azure
+    name: Deployment from Stagging environment
     runs-on: ubuntu-latest
     needs: authentication-ms-azure
     steps:
@@ -62,7 +62,7 @@ jobs:
 
   deployment-ms-azure-production:
     if: ${{ inputs.environment  == 'production' }}
-    name: Deployment to Microsoft Azure
+    name: Deployment from production environment
     runs-on: ubuntu-latest
     needs: authentication-ms-azure
     steps:
