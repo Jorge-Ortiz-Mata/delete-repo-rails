@@ -4,18 +4,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  testing:
-    name: Running Testing Workflow
-    uses: ./.github/workflows/testing-workflow.yml
+  # testing:
+  #   name: Running Testing Workflow
+  #   uses: ./.github/workflows/testing-workflow.yml
 
   deployment:
     name: Deploy to Microsft Azure
     uses: ./.github/workflows/azure-deployment.yml
     with:
       pr-number: ${{ github.event.pull_request.number }}
-      environment: pr/${{ github.event.pull_request.title}}
-    secrets:
-      server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-      username: ${{ secrets.REGISTRY_USERNAME }}
-      password: ${{ secrets.REGISTRY_PASSWORD }}
-    needs: testing
+      environment: ${{ github.action_repository }}
+    # secrets:
+    #   server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+    #   username: ${{ secrets.REGISTRY_USERNAME }}
+    #   password: ${{ secrets.REGISTRY_PASSWORD }}
+    # needs: testing
