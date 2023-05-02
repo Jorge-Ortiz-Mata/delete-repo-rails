@@ -46,13 +46,13 @@ jobs:
       #   run: echo "Docker image and Pull request ${{ inputs.pr-number }} deployed."
 
       - name: Run PR step
-        if: ${{ inputs.environment }} == 'pull_request'
+        if: ${{ inputs.environment }} === 'pull_request'
         run: echo "This is a pull request"
 
       - name: Run Stagging step
-        if: ${{ inputs.environment }} == 'stagging'
-        run: echo "This is a pull request"
+        if: ${{ inputs.environment }} === 'stagging'
+        run: echo "This is stagging"
 
       - name: Run Production step
-        if: ${{ inputs.environment }} == 'production'
-        run: echo "This is a pull request"
+        if: ${{ inputs.environment }} === 'production'
+        run: echo "This is production"
