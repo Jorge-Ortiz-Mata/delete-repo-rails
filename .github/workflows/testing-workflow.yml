@@ -15,17 +15,17 @@ jobs:
           POSTGRES_USERNAME: postgres
           POSTGRES_PASSWORD: postgres
     steps:
-      # - name: Get the code
-      #   uses: actions/checkout@v3
+      - name: Get the code
+        uses: actions/checkout@v3
 
-      # - name: Install dependencies
-      #   run: bundle install
+      - name: Install dependencies
+        run: bundle install
 
-      # - name: Run migrations
-      #   run: rails db:create RAILS_ENV=test
+      - name: Run migrations
+        run: rails db:create RAILS_ENV=test
 
-      # - name: Run specs
-      #   run: rspec spec
+      - name: Run specs
+        run: rspec spec
 
       - name: Get Specs
         run: echo "Tests passed."
