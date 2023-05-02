@@ -10,13 +10,13 @@ on:
         required: true
         type: string
         default: other
-    secrets:
-      server:
-        required: true
-      username:
-        required: true
-      password:
-        required: true
+    # secrets:
+    #   server:
+    #     required: true
+    #   username:
+    #     required: true
+    #   password:
+    #     required: true
 
 jobs:
   deployment-job:
