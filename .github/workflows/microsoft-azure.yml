@@ -25,6 +25,7 @@ jobs:
     if: ${{ inputs.environment == 'pull_request' }}
     name: Deployment from Pull Request environment
     runs-on: ubuntu-latest
+    environment: pr-${{ inputs.pr-name }}/${{ inputs.pr-number }}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3.0.0
@@ -47,6 +48,7 @@ jobs:
     if: ${{ inputs.environment == 'stagging' }}
     name: Deployment from Stagging environment
     runs-on: ubuntu-latest
+    environment: stagging
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3.0.0
@@ -69,6 +71,7 @@ jobs:
     if: ${{ inputs.environment  == 'production' }}
     name: Deployment from Production environment
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3.0.0
