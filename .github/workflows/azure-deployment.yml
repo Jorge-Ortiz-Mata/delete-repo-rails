@@ -19,23 +19,23 @@ jobs:
     name: 'Deplyoment to Microsoft Azure'
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout the code
-      #   uses: actions/checkout@v3.0.0
+      - name: Checkout the code
+        uses: actions/checkout@v3.0.0
 
-      # - name: 'Azure Container Registry Login'
-      #   uses: azure/docker-login@v1
-      #   with:
-      #     login-server: ${{ env.REGISTRY_LOGIN_SERVER }}
-      #     username: ${{ env.REGISTRY_USERNAME }}
-      #     password: ${{ env.REGISTRY_PASSWORD }}
+      - name: 'Azure Container Registry Login'
+        uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
 
-      # - name: Build the docker image and push it to ACR
-      #   uses: docker/build-push-action@v2
-      #   with:
-      #     push: true
-      #     tags: ${{ env.REGISTRY_LOGIN_SERVER }}/pull-request-${{ env.PR_NUMBER }}:latest
+      - name: Build the docker image and push it to ACR
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: ${{ secrets.REGISTRY_LOGIN_SERVER }}/pull-request-${{ inputs.pr-number }}:latest
 
       - name: Deploy to Microsoft Azure
-        run: echo "${{ inputs.pr-number }}"
+        run: echo "Docker image and Pull request ${{ inputs.pr-number }} deployed."
 
 
