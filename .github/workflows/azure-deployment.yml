@@ -23,8 +23,9 @@ jobs:
     name: 'Deplyoment to Microsoft Azure'
     runs-on: ubuntu-latest
     steps:
-      - name: Print values
-        run: echo "${{ inputs.environment }}"
+      # - name: Print values
+      #   run: echo "${{ inputs.environment }}"
+
       # - name: Checkout the code
       #   uses: actions/checkout@v3.0.0
 
@@ -44,4 +45,14 @@ jobs:
       # - name: Deploy to Microsoft Azure
       #   run: echo "Docker image and Pull request ${{ inputs.pr-number }} deployed."
 
+      - name: Run PR step
+        if: ${{ inputs.environment }} == 'pull_request'
+        run: echo "This is a pull request"
 
+      - name: Run Stagging step
+        if: ${{ inputs.environment }} == 'stagging'
+        run: echo "This is a pull request"
+
+      - name: Run Production step
+        if: ${{ inputs.environment }} == 'production'
+        run: echo "This is a pull request"
