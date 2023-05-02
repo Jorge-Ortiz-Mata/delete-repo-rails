@@ -8,10 +8,8 @@ on:
         type: string
         default: other
       pr-name:
-        required: true
         type: string
       pr-number:
-        required: true
         type: string
     secrets:
       server:
