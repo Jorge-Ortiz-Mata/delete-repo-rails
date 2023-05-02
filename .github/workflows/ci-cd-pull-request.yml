@@ -18,7 +18,7 @@ jobs:
     name: Deploy to Microsft Azure
     uses: ./.github/workflows/azure-deployment.yml
     with:
-      login-server: ${{ env.REGISTRY_LOGIN_SERVER }}
-      username: ${{ env.REGISTRY_PASSWORD }}
-      password: ${{ env.REGISTRY_USERNAME }}
+      login-server: hello
+      # username: ${{ env.REGISTRY_PASSWORD }}
+      password: world
     # needs: testing
