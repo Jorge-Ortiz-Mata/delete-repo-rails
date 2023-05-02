@@ -2,16 +2,13 @@ name: 'Deployment to Microsoft Azure'
 
 on:
   workflow_call:
-    inputs:
+    secrets:
       server:
         required: true
-        type: string
       username:
         required: true
-        type: string
       password:
         required: true
-        type: string
 
 jobs:
   deployment-job:
