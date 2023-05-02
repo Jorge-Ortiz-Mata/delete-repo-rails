@@ -32,6 +32,6 @@ jobs:
       #     tags: ${{ env.REGISTRY_LOGIN_SERVER }}/pull-request-${{ env.PR_NUMBER }}:latest
 
       - name: Deploy to Microsoft Azure
-        run: echo "${{ inputs.username }}"
+        run: echo "${{ secrets.username }}"
 
 
