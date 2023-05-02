@@ -26,3 +26,6 @@ jobs:
 
       - name: Run specs
         run: rspec spec
+
+      - name: Get Specs
+        run: echo "Tests passed."

@@ -10,8 +10,10 @@ jobs:
 
   deployment:
     name: Deploy to Microsft Azure
-    uses: ./.github/workflows/azure-deployment.yml
+    uses: ./.github/workflows/microsoft-azure.yml
     with:
+      environment: pull_request
+      pr-name: ${{ github.head_ref }}
       pr-number: ${{ github.event.pull_request.number }}
     secrets:
       server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
