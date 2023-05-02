@@ -2,6 +2,12 @@ name: 'Deployment to Microsoft Azure'
 on:
   workflow_call:
 
+env:
+  PR_NUMBER: ${{ github.event.pull_request.number }}
+  REGISTRY_LOGIN_SERVER: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+  REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
+  REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
+
 jobs:
   deployment-job:
     name: 'Deplyoment to Microsoft Azure'
