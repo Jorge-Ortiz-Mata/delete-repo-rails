@@ -62,7 +62,7 @@ jobs:
 
   deployment-ms-azure-production:
     if: ${{ inputs.environment  == 'production' }}
-    name: Deployment from production environment
+    name: Deployment from Production environment
     runs-on: ubuntu-latest
     needs: authentication-ms-azure
     steps:
