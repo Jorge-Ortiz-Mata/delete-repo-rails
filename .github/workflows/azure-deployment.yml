@@ -2,6 +2,10 @@ name: 'Deployment to Microsoft Azure'
 
 on:
   workflow_call:
+    inputs:
+      pr-number:
+        required: true
+        type: string
     secrets:
       server:
         required: true
@@ -32,6 +36,6 @@ jobs:
       #     tags: ${{ env.REGISTRY_LOGIN_SERVER }}/pull-request-${{ env.PR_NUMBER }}:latest
 
       - name: Deploy to Microsoft Azure
-        run: echo "${{ secrets.username }}"
+        run: echo "${{ inputs.pr-number }}"
 
 
