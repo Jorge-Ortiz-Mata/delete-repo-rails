@@ -33,3 +33,25 @@ COPY Gemfile.lock .
 
 RUN bundle install
 
+FROM development as release
+
+USER root
+
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    curl \
+    # Required by the "image_processing" gem to work:
+    libvips \
+    libpq5
+
+WORKDIR /workspaces/delete-app
+
+# Copy everything
+COPY . .
+
+RUN bundle install
+
+EXPOSE 3000
+
+CMD ['puma']

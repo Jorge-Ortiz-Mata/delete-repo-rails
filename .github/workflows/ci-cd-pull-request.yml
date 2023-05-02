@@ -3,9 +3,6 @@ on:
   pull_request:
   workflow_dispatch:
 
-env:
-  MICROSOFT_AZURE_NAME: rails-to-azure-services
-
 jobs:
   testing:
     name: Running Testing Workflow
@@ -14,13 +11,10 @@ jobs:
   deployment:
     name: Deploy to Microsft Azure
     uses: ./.github/workflows/azure-deployment.yml
+    with:
+      pr-number: ${{ github.event.pull_request.number }}
+    secrets:
+      server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+      username: ${{ secrets.REGISTRY_USERNAME }}
+      password: ${{ secrets.REGISTRY_PASSWORD }}
     needs: testing
-
-  deployment-azure:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to Microsof Azure Container Registry
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: ${{ env.MICROSOFT_AZURE_NAME }}
-          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
