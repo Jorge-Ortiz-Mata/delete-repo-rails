@@ -2,14 +2,24 @@ name: 'Deployment to Microsoft Azure'
 
 on:
   workflow_call:
+    inputs:
+      login-server:
+        required: true
+        type: string
+      username:
+        required: true
+        type: string
+      password:
+        required: true
+        type: string
 
 jobs:
   deployment-job:
     name: 'Deplyoment to Microsoft Azure'
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v3.0.0
+      # - name: Checkout the code
+      #   uses: actions/checkout@v3.0.0
 
       # - name: 'Azure Container Registry Login'
       #   uses: azure/docker-login@v1
@@ -25,6 +35,6 @@ jobs:
       #     tags: ${{ env.REGISTRY_LOGIN_SERVER }}/pull-request-${{ env.PR_NUMBER }}:latest
 
       - name: Deploy to Microsoft Azure
-        run: echo "${{ env.REGISTRY_USERNAME }}"
+        run: echo "${{ inputs.username }}"
 
 

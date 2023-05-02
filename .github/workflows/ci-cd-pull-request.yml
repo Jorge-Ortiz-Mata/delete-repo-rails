@@ -14,14 +14,11 @@ jobs:
   #   name: Running Testing Workflow
   #   uses: ./.github/workflows/testing-workflow.yml
 
-  # deployment:
-    # name: Deploy to Microsft Azure
-    # uses: ./.github/workflows/azure-deployment.yml
+  deployment:
+    name: Deploy to Microsft Azure
+    uses: ./.github/workflows/azure-deployment.yml
+    with:
+      login-server: ${{ env.REGISTRY_LOGIN_SERVER }}
+      username: ${{ env.REGISTRY_PASSWORD }}
+      password: ${{ env.REGISTRY_USERNAME }}
     # needs: testing
-
-  test:
-    name: Job Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to Microsft Azure...
-        run: echo "${{ env.REGISTRY_USERNAME }}"
