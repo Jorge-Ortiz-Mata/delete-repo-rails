@@ -3,13 +3,16 @@ name: 'Deployment to Microsoft Azure'
 on:
   workflow_call:
     inputs:
-      pr-number:
-        required: true
-        type: string
       environment:
         required: true
         type: string
         default: other
+      pr-name:
+        required: true
+        type: string
+      pr-number:
+        required: true
+        type: string
     # secrets:
     #   server:
     #     required: true
@@ -23,9 +26,6 @@ jobs:
     name: 'Deplyoment to Microsoft Azure'
     runs-on: ubuntu-latest
     steps:
-      - name: Print values
-        run: echo Variable = "${{ inputs.environment }}"
-
       # - name: Checkout the code
       #   uses: actions/checkout@v3.0.0
 
