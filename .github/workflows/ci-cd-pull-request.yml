@@ -12,7 +12,7 @@ jobs:
     name: Deploy to Microsft Azure
     uses: ./.github/workflows/azure-deployment.yml
     secrets:
-      login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+      server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
       username: ${{ secrets.REGISTRY_USERNAME }}
       password: ${{ secrets.REGISTRY_PASSWORD }}
     # needs: testing

@@ -3,7 +3,7 @@ name: 'Deployment to Microsoft Azure'
 on:
   workflow_call:
     inputs:
-      login-server:
+      server:
         required: true
         type: string
       username:
