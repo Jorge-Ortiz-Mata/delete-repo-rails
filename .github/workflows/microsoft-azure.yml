@@ -23,8 +23,9 @@ jobs:
   # ========== Pull Request Configuration ===========
   deployment-ms-azure-pull-request:
     if: ${{ inputs.environment == 'pull_request' }}
-    name: Deployment from Pull Request environment
+    name: Pull Request - Deployment
     runs-on: ubuntu-latest
+    environment: pull-request/${{ inputs.pr-number }}-${{ inputs.pr-name }}
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3.0.0
@@ -45,8 +46,9 @@ jobs:
   # ========== Stagging Configuration ===========
   deployment-ms-azure-stagging:
     if: ${{ inputs.environment == 'stagging' }}
-    name: Deployment from Stagging environment
+    name: Stagging - Deployment
     runs-on: ubuntu-latest
+    environment: stagging
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3.0.0
@@ -67,8 +69,9 @@ jobs:
   # ========== Production Configuration ===========
   deployment-ms-azure-production:
     if: ${{ inputs.environment  == 'production' }}
-    name: Deployment from Production environment
+    name: Production - Deployment
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3.0.0
