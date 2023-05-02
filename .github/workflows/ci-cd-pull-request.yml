@@ -13,6 +13,7 @@ jobs:
     uses: ./.github/workflows/azure-deployment.yml
     with:
       pr-number: ${{ github.event.pull_request.number }}
+      environment: pull_request_${{ github.event.pull_request.title}}
     secrets:
       server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
       username: ${{ secrets.REGISTRY_USERNAME }}
