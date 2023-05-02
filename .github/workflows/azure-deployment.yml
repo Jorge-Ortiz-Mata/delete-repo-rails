@@ -23,8 +23,8 @@ jobs:
     name: 'Deplyoment to Microsoft Azure'
     runs-on: ubuntu-latest
     steps:
-      # - name: Print values
-      #   run: echo "${{ inputs.environment }}"
+      - name: Print values
+        run: echo "${{ inputs.environment }}"
 
       # - name: Checkout the code
       #   uses: actions/checkout@v3.0.0
