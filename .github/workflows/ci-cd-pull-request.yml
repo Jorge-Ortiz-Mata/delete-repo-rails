@@ -3,6 +3,11 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  id-token: write
+  deployments: write
+
 jobs:
   # testing:
   #   name: Running Testing Workflow
