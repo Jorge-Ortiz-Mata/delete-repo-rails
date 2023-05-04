@@ -4,19 +4,27 @@ on:
   workflow_dispatch:
 
 jobs:
-  testing:
-    name: Running Testing Workflow
-    uses: ./.github/workflows/testing-workflow.yml
+  # testing:
+  #   name: Running Testing Workflow
+  #   uses: ./.github/workflows/testing-workflow.yml
 
-  deployment:
-    name: Deploy to Microsft Azure
-    uses: ./.github/workflows/microsoft-azure.yml
+  # deployment-ms-azure:
+  #   name: Deploy to Microsft Azure
+  #   uses: ./.github/workflows/microsoft-azure.yml
+  #   with:
+  #     environment: pull_request
+  #     pr-name: ${{ github.head_ref }}
+  #     pr-number: ${{ github.event.pull_request.number }}
+  #   secrets:
+  #     server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+  #     username: ${{ secrets.REGISTRY_USERNAME }}
+  #     password: ${{ secrets.REGISTRY_PASSWORD }}
+  #   needs: testing
+
+  deployment-gcp:
+    name: Deploy to Google Cloud Platform
+    uses: ./.github/workflows/google-cloud-platform.yml
     with:
       environment: pull_request
       pr-name: ${{ github.head_ref }}
       pr-number: ${{ github.event.pull_request.number }}
-    secrets:
-      server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-      username: ${{ secrets.REGISTRY_USERNAME }}
-      password: ${{ secrets.REGISTRY_PASSWORD }}
-    needs: testing

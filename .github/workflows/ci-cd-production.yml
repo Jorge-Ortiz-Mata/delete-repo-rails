@@ -10,7 +10,7 @@ jobs:
     name: Running Testing Workflow
     uses: ./.github/workflows/testing-workflow.yml
 
-  deployment:
+  deployment-ms-azure:
     name: Deploy to Microsft Azure
     uses: ./.github/workflows/microsoft-azure.yml
     with:
