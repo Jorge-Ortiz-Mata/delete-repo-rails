@@ -3,12 +3,17 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  id-token: write
+  deployments: write
+
 jobs:
   testing:
     name: Running Testing Workflow
     uses: ./.github/workflows/testing-workflow.yml
 
-  deployment:
+  deployment-ms-azure:
     name: Deploy to Microsft Azure
     uses: ./.github/workflows/microsoft-azure.yml
     with:
@@ -20,3 +25,10 @@ jobs:
       username: ${{ secrets.REGISTRY_USERNAME }}
       password: ${{ secrets.REGISTRY_PASSWORD }}
     needs: testing
+
+  # deployment-gcp:
+  #   name: Deploy to Google Cloud Platform
+  #   uses: ./.github/workflows/google-cloud-platform.yml
+  #   with:
+  #     environment: pull_request
+  #     pr-branch: ${{ github.head_ref }}
