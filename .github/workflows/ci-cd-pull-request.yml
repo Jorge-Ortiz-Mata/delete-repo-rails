@@ -26,5 +26,4 @@ jobs:
     uses: ./.github/workflows/google-cloud-platform.yml
     with:
       environment: pull_request
-      pr-name: ${{ github.head_ref }}
-      pr-number: ${{ github.event.pull_request.number }}
+      pr-branch: ${{ github.head_ref }}
