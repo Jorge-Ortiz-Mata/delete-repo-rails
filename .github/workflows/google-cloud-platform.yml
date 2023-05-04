@@ -20,8 +20,14 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v3.0.0
 
-      - name: 'Authenticate to Google Cloud'
+      - name: Authenticate to Google Cloud
         uses: 'google-github-actions/auth@v0.4.0'
         with:
           workload_identity_provider: 'projects/913392790239/locations/global/workloadIdentityPools/jorge-identity'
           service_account: github-runner@jorge-firebase-test.iam.gserviceaccount.com
+
+      - name: Set up Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0.6.0
+
+      - name: Authorize push to Google Cloud Artifact Registry
+        run: gcloud auth configure-docker us-central1-docker.pkg.dev
